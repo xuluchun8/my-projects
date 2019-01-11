@@ -8,8 +8,7 @@
         <li></li>
         <li></li>
         <li></li>
-        <li></li>
-        <li></li>
+
     </ul>
     </div>  
     <textarea disabled class="copyWord" type="text"></textarea>
@@ -21,9 +20,9 @@ export default {
   created() {
      $(document).ready(function () {
       // 进度条动画
-      let j = 0
+      let j = 1
       setInterval(function () {
-        j = j > 4 ? 0 : j++
+        j = j > 4 ? 1 : ++j
         $('li:eq(' + j + ')').css({
           'background-color': 'red'
         }).siblings().css({
@@ -43,7 +42,7 @@ export default {
           var timer = setInterval(function () {
             if (copyIndex < textLength) {
               // 展示动画
-              $('ul')[0].style.display = 'block'
+              $('.moving')[0].style.display = 'block'
               copyIndex++
               $('.copyWord').append(text[copyIndex])
               $('.wordNums').text(copyIndex + '/' + textLength)
@@ -51,7 +50,7 @@ export default {
               $('.inputWord').val(s)
             } else {
               // 取消动画
-              $('ul')[0].style.display = 'none'
+              $('.moving')[0].style.display = 'none'
               clearInterval(timer)
             }
           }, 100)
@@ -94,7 +93,7 @@ export default {
   }
   .moving{
     position absolute;
-    left 170px;
+    left 190px;
     transform translateY(5px)
   }
   ul{

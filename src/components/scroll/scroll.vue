@@ -16,6 +16,14 @@ export default {
     probeType : {
       type : Number,
       default : null
+    },
+    scrollX : {
+      type : Boolean,
+      defalut : false
+    },
+    scrollY : {
+      type : Boolean,
+      defalut : true
     }
   },
   created(){
@@ -46,7 +54,9 @@ export default {
     _initScroll(){
       this.scroll = new BScroll(this.$refs.scrollWrapper,{
         click : true,
-        probeType : this.probeType
+        probeType : this.probeType,
+        scrollX : this.scrollX,
+        scrollY : this.scrollY,
       })
       this.scroll.on('scroll',(pos) => {
         this.currentTop = pos.y

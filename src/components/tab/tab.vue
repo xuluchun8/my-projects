@@ -1,31 +1,36 @@
 <template>
   <div id="tab">
     <div class="nav">
-      <router-link to="app">App</router-link>
-      <router-link to="weixinapp">小程序</router-link>
-      <router-link to="demo">demo</router-link>
+      <span @click="changeIndex(0)" :class="{'active': tabIndex === 0 }" >App</span>
+      <span @click="changeIndex(1)" :class="{'active': tabIndex === 1 }" >小程序</span>
+      <span @click="changeIndex(2)" :class="{'active': tabIndex === 2 }" >demo</span>
     </div>
-    <!-- <keep-alive>
-      <router-view></router-view>
-    </keep-alive> -->
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      tabIndex : 0
     };
   },
+  props:{
+    getedTabIndex : {
+      type : Number,
+      default : 0
+    }
+  },
+  watch: {
+    getedTabIndex(val){
+      this.tabIndex = val
+    }
+  },
   methods: {
-
+    changeIndex(index){
+      this.tabIndex = index
+      this.$emit('getTabIndex',index)
+    }
   },
-  deactivated(){
-    console.log('deactived');
-  },
-  activated(){
-    console.log('actived');
-    
-  }
 };
 </script>
 <style lang="stylus">
@@ -38,12 +43,9 @@ export default {
   border-bottom: solid 1px rgba(7, 17, 27, 0.1);
   border-top: solid 1px rgba(7, 17, 27, 0.1);
   flex-grow 1
-  a 
-    display inline-block
-    width 100%
-    text-align center
-  .router-link-active
-    color: red;
-    width 100%
+  span
+    color gray
+    &.active 
+      color red
 
 </style>

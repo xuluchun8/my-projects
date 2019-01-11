@@ -64,7 +64,7 @@ export default {
 #myapp 
   position: relative;
   height: 378px;
-  
+  width 100%;
   .app-item 
     display: flex;
     flex-direction: column;
@@ -72,13 +72,11 @@ export default {
     background-color white !important
     .wrapper
       width 80%
-      
       .name 
         text-align center
         padding: 10px;
         font-size: 14px;
         color: #7e8c8d;
-
       .rescode 
         display flex
         padding-bottom: 10px;
@@ -87,5 +85,8 @@ export default {
           padding-right 20px
           width 100px
           height 100px
-
+        .description
+          font-size 10px
+          width 100px
+          align-self center
 </style>

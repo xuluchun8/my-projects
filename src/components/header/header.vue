@@ -110,8 +110,6 @@ export default {
         children[i].style.width = wrapperWidth + 'px'
       }
       width += wrapperWidth*2
-      console.log(width);
-      
       this.$refs.slideItems.style.width = width + 'px'
     }
   }

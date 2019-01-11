@@ -58,11 +58,11 @@ export default {
   }
 };
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped >
 #myapp 
   position: relative;
   height: 378px;
-  
+  width 100%;
   .app-item 
     display: flex;
     flex-direction: column;

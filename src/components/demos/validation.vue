@@ -18,17 +18,15 @@
 <script>
 export default {
   mounted() {
-    this.createCodes();
+    this.init();
   },
   methods: {
     update() {
-      this.createCodes();
+      this.init();
     },
-    createCodes() {
-      var ospan = this.$refs.codes.children;
-      var obtn = this.$refs.btn;
-      var oinput = this.$refs.oinput;
+    createCodes(){
       var codesStr = "";
+      var ospan = this.$refs.codes.children;
       var codes = [
         "0",
         "1",
@@ -98,15 +96,26 @@ export default {
         ospan[i].innerHTML = code;
         codesStr += code.toUpperCase();
       }
+      return codesStr
+    },
+    init() {
+      var obtn = this.$refs.btn;
+      var oinput = this.$refs.oinput;
+      let codesStr = this.createCodes()
+      let _this = this
       obtn.onclick = function(e) {
+        _this.createCodes()
         e.preventDefault();
         var inputValue = oinput.value.toUpperCase();
         if (!inputValue) {
           alert("请输入验证码");
+          return
         }
         if (inputValue === codesStr) {
           alert("验证成功");
           window.open("http://www.baidu.com");
+        }else{
+          alert('验证码不正确')
         }
       };
     }
@@ -116,16 +125,14 @@ export default {
 
 <style scoped>
 .validation{
-  width: 100%;
-  align-self: auto;
-  transform: translateX(30px)
+  align-self: center;
+  /* transform: translateX(30px) */
 }
 .wrapper {
   position: absolute;
   display: flex;
   width: 90%;
   font-size: 10px;
-  left: 0;
 }
 .checkCodes {
   background-color: gray;
@@ -135,6 +142,7 @@ export default {
   text-align: center;
   align-self: flex-start;
   margin-bottom: 10px;
+  margin-right: 106px;
 }
 .input {
   border: solid rgb(199, 195, 195) 1px;
