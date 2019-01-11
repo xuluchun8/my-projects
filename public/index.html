@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>my-projects</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but my-projects doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="static/css/reset.css">
+  <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+  <title>my-projects</title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but my-projects doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script>
+    $(document).ready(function () {
+      // 进度条动画
+      let j = 0
+      setInterval(function () {
+        j = j > 4 ? 0 : j++
+        $('li:eq(' + j + ')').css({
+          'background-color': 'red'
+        }).siblings().css({
+          'background-color': 'orange'
+        })
+      }, 100)
+
+      // 点击copy
+      $('.btn').click(function () {
+        let text = $('textarea').val()
+        if (text == '') {
+          alert('请输入内容')
+        } else {
+          // 显示文字个数
+          let textLength = text.length,
+            copyIndex = 0
+          var timer = setInterval(function () {
+            if (copyIndex < textLength) {
+              // 展示动画
+              $('ul')[0].style.display = 'block'
+              copyIndex++
+              $('.copyWord').append(text[copyIndex])
+              $('.wordNums').text(copyIndex + '/' + textLength)
+              var s = text.split("").slice(copyIndex, textLength).join("")
+              $('.inputWord').val(s)
+            } else {
+              // 取消动画
+              $('ul')[0].style.display = 'none'
+              clearInterval(timer)
+            }
+          }, 100)
+        }
+      })
+    })
+  </script>
+</body>
 </html>
