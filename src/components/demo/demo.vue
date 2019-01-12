@@ -27,7 +27,7 @@
             <nav-icon></nav-icon>
           </demo-wrapper>
           <demo-wrapper :title="'奔跑的马儿'" :height="200">
-            <div class="horse"></div>
+            <lucky-draw></lucky-draw>
           </demo-wrapper>
         </div>
       </scroll>
@@ -40,13 +40,15 @@ import Scroll from '../scroll/scroll'
 import Validation from '../../components/demos/validation'
 import WordCopy from '../../components/demos/word-copy'
 import NavIcon from '../../components/demos/nav-icon'
+import LuckyDraw from '../../components/demos/lucky-draw'
 export default {
   components:{
     DemoWrapper,
     Scroll,
     Validation,
     WordCopy,
-    NavIcon
+    NavIcon,
+    LuckyDraw
   },
   methods:{ 
     getCurrentIndex(index){

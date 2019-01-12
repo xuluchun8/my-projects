@@ -37,6 +37,8 @@ export default {
     line-height: 26px;
     height 26px
   .content
+    padding 5px
+    border solid white 1px
     position relative
     border-bottom solid rgba(7, 17, 27, 0.1) 1px
     flex-grow 1

@@ -100,7 +100,7 @@ ul {
 .home {
   position: absolute;
   left: 115px;
-  bottom: 5px;
+  bottom: 0px;
   border-radius: 50%;
   transform: rotate(0deg);
   transition: all 0.5s;

@@ -1,6 +1,6 @@
 <template>
   <div id="myapp">
-    <scroll>
+    <scroll :scrollY="true" >
       <ul>
         <li class="app-item" v-for="item in apps" :key="item.id">
           <a class="wrapper" :href="item.href">
@@ -29,7 +29,8 @@ export default {
     return {
       apps: [
         { name: "仿写版饿了吗？",href:'http://132.232.104.130:8000/#/goods', rescode: "./seller.png", id: 0 ,description:'vue框架仿写饿了吗网站，大量应用了组件化开发的思想，使用了better-scroll库....'},
-        { name: "答题小系统", rescode: "./seller.png", id: 1 },
+        { name: "答题小系统",href:'http://132.232.104.130:8000/#/goods', rescode: "./seller.png", id: 1,description:'待部署到服务器...' },
+        { name: "音乐播放器",href:'http://132.232.104.130:8000/#/goods', rescode: "./seller.png", id: 2,description:'技术点：vue better-scroll icoMoon axios promise...' },
       ]
     };
   },
@@ -50,7 +51,7 @@ export default {
         var img = new Image();
         img.onload = function() {
           // img.setAttribute("crossOrigin",'Anonymous')
-          ctx.drawImage(img, 0, 0, 100, 100);
+          // ctx.drawImage(img, 0, 0, 100, 100);
           // var base64 = canvas.toDataURL();
           // item.rescode = base64
         };
