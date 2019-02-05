@@ -3,7 +3,7 @@
     <div class="left">
       <scroll ref="titleScroll" >
         <div class="left-wrapper">
-          <div class="title-wrapper" @click="switchDemo(item.id)" :class="{'active' : currentDemo == item.id }" v-for="(item) in demos" :key="item.id">
+          <div class="title-wrapper" @click="switchDemo(item.id)"  :class="{'active' : currentDemo == item.id}" v-for="(item) in demos" :key="item.id">
             <span class="title">
               {{item.title}}
             </span>
@@ -26,7 +26,7 @@
           <demo-wrapper :title="'炫酷导航条'" :height="200">
             <nav-icon></nav-icon>
           </demo-wrapper>
-          <demo-wrapper :title="'奔跑的马儿'" :height="200">
+          <demo-wrapper  :title="'倒计时抽奖'" :height="200">
             <lucky-draw></lucky-draw>
           </demo-wrapper>
         </div>
@@ -55,21 +55,22 @@ export default {
       this.currentDemo = index      
     },
     switchDemo(id){
-      console.log(id);
-      
+      // this.currentIndex = id 
+      // this.currentDemo = id
       let height = this.$refs.demoScroll.heightArr[id]
-      this.$refs.demoScroll.scroll.scrollTo(0,-height,400)      
+      this.$refs.demoScroll.scroll.scrollTo(0,-height,70)     
     }
   },
   data(){
     return {
-      currentDemo : null,
+      currentIndex : 0,
+      currentDemo : 0,
       demos : [
         {title : '奔跑的马儿',description : 'css3 transform steps', id:0},
         {title : '验证组件',description : 'css3 transform steps', id:1},
         {title : '复制文本',description : '从一个文本框中复制到另一个文本框', id:2},
         {title : '炫酷导航条',description : 'css3 transform steps', id:3},
-        {title : '奔跑的马儿',description : 'css3 transform steps', id:4},
+        {title : '倒计时抽奖',description : 'css3 transform steps', id:4},
         {title : '奔跑的马儿',description : 'css3 transform steps', id:5},
         {title : '奔跑的马儿',description : 'css3 transform steps', id:6},
         {title : '奔跑的马儿',description : 'css3 transform steps', id:7},
@@ -94,6 +95,8 @@ export default {
     overflow hidden
     position relative
     .title-wrapper
+      &.active2
+        background-color white
       &.active
         background-color white
       padding 10px 10px

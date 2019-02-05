@@ -43,10 +43,13 @@ export default {
         if(-posY >= heightArr[i] && -posY < heightArr[i + 1]){
           currentIndex = i
         }
-        if(-posY > heightArr[heightArr.length - 1]){
+        if(-posY >= heightArr[heightArr.length - 1]){
           currentIndex = heightArr.length
         }
       }
+      // console.log(posY,heightArr);
+      
+      // console.log('scroll' + currentIndex)
       this.$emit('getCurrentIndex',currentIndex)
     }
   },
@@ -60,6 +63,7 @@ export default {
       })
       this.scroll.on('scroll',(pos) => {
         this.currentTop = pos.y
+        console.log( pos);
       })
     },
     _calculateHeight(){

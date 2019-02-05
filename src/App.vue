@@ -33,9 +33,7 @@ export default {
     }
   },
   methods: {
-    changeContent(index){
-      console.log(index);
-      
+    changeContent(index){      
       this.mainScroll.goToPage(index)
     }
   },

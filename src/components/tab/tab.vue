@@ -1,6 +1,6 @@
 <template>
   <div id="tab">
-    <div class="nav">
+    <div class="nav" @touchmove.stop.prevent>
       <span @click="changeIndex(0)" :class="{'active': tabIndex === 0 }" >App</span>
       <span @click="changeIndex(1)" :class="{'active': tabIndex === 1 }" >小程序</span>
       <span @click="changeIndex(2)" :class="{'active': tabIndex === 2 }" >demo</span>
@@ -26,6 +26,9 @@ export default {
     }
   },
   methods: {
+    noTouch(e){
+      console.log(e)
+    },
     changeIndex(index){
       this.tabIndex = index
       this.$emit('getTabIndex',index)

@@ -1,11 +1,11 @@
-<template>
+<template >
   <div class="lucky-draw">
     <div class="header">
       <span class="startTime">距离抽奖时间{{time}}s</span>
     </div>
     <div class="body">
       <div class="content-left">
-        <h5 >抽奖中...</h5>
+        <h5></h5>
         <div class="name">姓名</div>
         <div class="phone">电话</div>
       </div>
@@ -41,7 +41,7 @@ export default {
       totalNum : 5,
       index : 0,
       time : 5,
-      reset : true
+      reset : true,
     };
   },
   computed:{
